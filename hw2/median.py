@@ -18,4 +18,4 @@ class MedianFinder:
     # ---------------------------------------------------------------------------------------------
     def findMedian(self) -> float:
         return self.data[int(self.pointer)] if self.pointer % 1 == 0.0 \
-            else 0.5 * (self.data[int(self.pointer - 0.5)] + self.data[int(self.pointer + 0.5)]
+            else 0.5 * (self.data[int(self.pointer - 0.5)] + self.data[int(self.pointer + 0.5)])
