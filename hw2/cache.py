@@ -1,6 +1,7 @@
 
 class Overflow(Exception):
     pass
+# поправить чтобы при апдейте не уменьшался счетчик
 
 
 class LRUCache:
@@ -21,7 +22,8 @@ class LRUCache:
         assert type(value) == str, 'value should be a str type'
         if self.capacity <= 0:
             raise Overflow('LRUCache is full. Please, release element(s) or increase capacity')
-        self.capacity -= 1
+        if key not in self.cache:
+            self.capacity -= 1
         self.cache.update({key : value})
 
     # ---------------------------------------------------------------------------------------------

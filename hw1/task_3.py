@@ -30,11 +30,11 @@ class A(object):
         return '{0}, {1}'.format(self.value, self.currency)
 
     def __add__(self, other):
-        if isinstance(other, int):
+        if isinstance(other, float):
             return A(self.value + other, self.currency)
 
         elif type(self) == type(other):
-            assert self.currency is not None or other.currency is not None, 'Currencies not implemented'
+            assert self.currency is not None or other.currency is not None, HELP('HELP!!! Currencies not implemented')
 
             if self.currency is not None and other.currency is not None:
                 return A(self.value + self.convert(other) * other.value, self.currency)
@@ -46,7 +46,7 @@ class A(object):
                 return A(self.value + other.value, other.currency)
 
             else:
-                raise HELP('HELP!!!')
+                raise
 
     def __iadd__(self, other):
         return self.__add__(other)
