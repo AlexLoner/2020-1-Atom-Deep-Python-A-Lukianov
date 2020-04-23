@@ -1,0 +1,7 @@
+2020-04-23 12:29:49,490 - INFO - main - Program started with ar: [4.0, 5.0, 9.0, 5.0, 3.0, 8.0, 4.0, 8.0, 1.0, 1.0]
+2020-04-23 12:29:49,490 - ERROR - main.function.func - input type assert
+2020-04-23 12:29:49,490 - ERROR - main.function.func - Non empty list assert
+2020-04-23 12:29:49,490 - ERROR - main.function.func - Contains from floats or integer assert
+2020-04-23 12:29:49,491 - INFO - main.function.func - Compute new_ar from [4.0, 5.0, 9.0, 5.0, 3.0, 8.0, 4.0, 8.0, 1.0, 1.0]
+2020-04-23 12:29:49,491 - INFO - main.function.func - Complete computations, new_ar: [172800.0, 138240.0, 76800.0, 138240.0, 230400.0, 86400.0, 172800.0, 86400.0, 691200.0, 691200.0]
+2020-04-23 12:29:49,491 - INFO - main - Done!
