@@ -1,3 +1,5 @@
+import sqlalchemy
+
 from entities import Base, Customer
 from orm_base import MyBase
 
@@ -18,8 +20,12 @@ class Tables:
 
     # ------------------------------------------------------------------------------------------------------------------
     def create(self, entity: Customer):
-        self.base.session.add(entity)
-        self.base.session.commit()
+        try:
+            self.base.session.add(entity)
+            self.base.session.commit()
+        except sqlalchemy.exc.IntegrityError:
+            print(f'Customer with email: "{entity.email}" already exists')
+            self.base.session.rollback()
 
     # ------------------------------------------------------------------------------------------------------------------
     def all(self):

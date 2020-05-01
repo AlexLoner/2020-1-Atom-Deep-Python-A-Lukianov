@@ -16,7 +16,7 @@ class Customer(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(20), nullable=False)
     fullname = Column(String(40), nullable=False)
-    email = Column(String(70), nullable=False)
+    email = Column(String(70), unique=True, nullable=False)
     birthday = Column(Date, nullable=False)
 
     # ------------------------------------------------------------------------------------------------------------------

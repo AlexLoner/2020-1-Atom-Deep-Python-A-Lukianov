@@ -3,14 +3,15 @@ import logging
 from itertools import combinations
 from math import prod
 
+
 def func(ar: List[int]) -> list:
     logger = logging.getLogger("main.function.func")
-    assert type(ar) == list
     logger.error("input type assert")
-    assert len(ar) > 0
+    assert type(ar) == list
     logger.error('Non empty list assert')
-    assert all([isinstance(i, int) or isinstance(i, float) for i in ar])
+    assert len(ar) > 0
     logger.error("Contains from floats or integer assert")
+    assert all([isinstance(i, int) or isinstance(i, float) for i in ar])
     logger.info(f"Compute new_ar from {ar}")
     new_ar = [prod(m) for m in combinations(ar[::-1], len(ar) - 1)]
     logger.info(f'Complete computations, new_ar: {new_ar}')

@@ -5,7 +5,6 @@ import function
 
 class TestFunc(unittest.TestCase):
 
-
     def test_wrong_input(self):
         self.assertRaises(AssertionError, function.func, 'string')
 

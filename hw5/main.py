@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
 
     logger = setLogger()
-    n = 10
+    n = 10000
     ar = [float(i) for i in np.random.randint(1, n, n)]
     logger.info(f"Program started with ar: {ar}")
     func(ar)
