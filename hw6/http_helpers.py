@@ -2,8 +2,10 @@ import json
 import requests
 import bs4
 from collections import Counter
-from nltk.corpus import stopwords, wordnet
+from nltk.corpus import stopwords
 
+
+# --------------------------------------------------------------------------------------------
 class NonValidRequest(Exception):
     pass
 
@@ -32,13 +34,13 @@ class HttpParser:
                     words.append(new_word)
             return words
         else:
-            raise NonValidRequest(f'Check page address: response cose is {self.req.status_code}')
+            raise NonValidRequest(f'Check page address: response code is {self.req.status_code}')
 
     # -------------------------------------------------------------------------------------------
     def top10(self) -> json:
         counter = Counter(self.get_all_words())
         tmp_lst = sorted([(key, value) for key, value in counter.items()], reverse=True, key=lambda x: x[1])
         result_dict = {str(i+1): tmp_lst[i] for i in range(10)}
-        with open('top10.json', 'w') as f:
-            json.dump(result_dict, f, ensure_ascii=False)
+        # with open('top10.json', 'w') as f:
+        #     json.dump(result_dict, f, ensure_ascii=False)
         return json.dumps(result_dict, ensure_ascii=False)
