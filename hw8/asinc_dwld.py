@@ -35,9 +35,12 @@ async def main(n: int, urls: list):
 
 
 # --------------------------------------------------------------------------------------------
-def prepare_urls(url_file, limit=100):
+def prepare_urls(url_file, limit=-1):
     with open(url_file) as file:
-        urls_list = [i.strip() for num, i in enumerate(file) if num < limit]
+        if limit == -1:
+            urls_list = [i.strip() for num, i in enumerate(file)]
+        else:
+            urls_list = [i.strip() for num, i in enumerate(file) if num < limit]
     return urls_list
 
 
@@ -46,7 +49,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-n', dest='requests', type=int)
-    parser.add_argument('-lim', dest='limit', type=int, default=20)
+    parser.add_argument('-lim', dest='limit', type=int, default=-1)
     parser.add_argument('-f', dest='urls_file', type=str)
     args = parser.parse_args()
 
